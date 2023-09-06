@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://slot-game.netlify.app",
+    origin: "https://slot-game-kn.netlify.app",
     credentials: true,
   })
 );
