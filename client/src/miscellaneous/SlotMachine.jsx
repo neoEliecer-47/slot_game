@@ -10,7 +10,7 @@ const SlotMachine = ({ player }) => {
   const { setModalSlot, modalSlot } = useGameContext();
 
   const handlePlaySlotMachine = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/v1/slot");
+    const { data } = await axios.get("https://api-slot-1.onrender.com/api/v1/slot");
     
 
     setFruits(data.results);
