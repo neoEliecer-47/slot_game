@@ -16,5 +16,5 @@ app.use(
 app.use(express.json());
 app.disable("x-powered-by");
 app.use("/api/v1/slot", slotRoutes);
-
+console.log("");
 app.listen(8000, () => console.log("Server running on http://localhost:8000"));
