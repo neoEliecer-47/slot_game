@@ -1,18 +1,15 @@
-const useSlotGame = (endpoint, method = "GET", player = null) => {
-    fetch("http://localhost:8080/api/v1" + endpoint, {
+const useSlotGame = async (endpoint, method = "GET", playerData = null) => {
+    const res = await fetch("http://localhost:8000/api/v1" + endpoint, {
         method: method,
-        
+        //credentials: true, => this basically for cookies in case there are
         headers: {
             "Content-Type": "application/json",
-           
         },
-        body: JSON.stringify(player),
-    })
-        .then((res) => res.json())
-        .then((data) => {return data})
-        .catch((e) => console.log(e))
+        body: JSON.stringify(playerData),
+    });
 
-    
+    const data = res.json();
+    return data;
 };
 
 export default useSlotGame;

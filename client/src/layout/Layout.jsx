@@ -9,33 +9,26 @@ import { useGameContext } from "../context/GameContext";
 import ModalSlotGame from "../components/game/ModalSlotGame";
 
 const Layout = () => {
-   
-  const { gamesSearched, setGamesSearched, modalSlot } = useGameContext()
+  const { gamesSearched, setGamesSearched, modalSlot } = useGameContext();
 
-  
+  useEffect(() => {
+    if (!gamesSearched) setGamesSearched(games);//if there is not any search, it return to all the objects in  game data
+  }, [gamesSearched]);
 
-    useEffect(() => {
-      if(!gamesSearched) setGamesSearched(games)
-    }, [gamesSearched])
+  if (!gamesSearched) return <div>loading...</div>;
 
-
-    if(!gamesSearched) return <div>loading...</div>
-  
-  
   return (
-        <>
-            <header>
-              <HeaderGame />
-            </header>
-            <main className="relative max-w-[80%] mx-auto bg-gray-300">
-                <SearchGame />
-                <CardGame games={gamesSearched} />
-                {modalSlot && (
-                  <ModalSlotGame />
-                )}
-            </main>
-        </>
-    );
+    <>
+      <header>
+        <HeaderGame />
+      </header>
+      <main className="relative max-w-[80%] mx-auto bg-gray-300">
+        <SearchGame />
+        <CardGame games={gamesSearched} />
+        {modalSlot && <ModalSlotGame />}
+      </main>
+    </>
+  );
 };
 
 export default Layout;
