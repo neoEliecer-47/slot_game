@@ -1,16 +1,16 @@
-import { Schema, model } from 'mongoose'
-
+import { Schema, model } from "mongoose";
+//schema for database
 const playerSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true,
-    },
-    favoriteGame: {
-        type: Schema.Types.ObjectId,
-        ref: 'Game'
-    }
-})
+  playerName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  favoriteGame: {
+    type: Schema.Types.ObjectId,
+    ref: "Game",
+  },
+});
 
-const Player = model('player', playerSchema)
-export default Player
+const Player = model("player", playerSchema);
+export default Player;
